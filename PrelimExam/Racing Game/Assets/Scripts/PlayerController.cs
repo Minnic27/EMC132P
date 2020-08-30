@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         gameSettings = GameObject.Find("Canvas").GetComponent<GameSettings>(); // allows to use methods from GameSettings script
-        rb.centerOfMass = centerOfMass; // when turning the car doesn't flip
+        rb.centerOfMass = centerOfMass; // when turning the car doesn't flip too much
     }
 
     // setting the movement of the car
@@ -61,7 +61,8 @@ public class PlayerController : MonoBehaviour
         frCollider.motorTorque = verticalInput * motorForce;
         if (isTurbo) // if [Space] is held
         {
-            
+            Debug.Log("Test");
+            motorForce *= 100; 
         }
     }
 
@@ -97,7 +98,7 @@ public class PlayerController : MonoBehaviour
     // function of car collision
     void OnTriggerEnter(Collider col)
     {
-        // if car collides with finish line object
+        // if car collides with finish line collider
         if (col.gameObject.name == "FinishLine")
         {
             // if reachedCheckpoint is true
@@ -107,18 +108,17 @@ public class PlayerController : MonoBehaviour
             }
             
         }
-        // if car collides with checkpoint object
+        // if car collides with checkpoint collider
         else if (col.gameObject.name == "Checkpoint")
         {
             Debug.Log("Checkpoint reached!");
             reachedCheckpoint = true;
         }
-        
-        
+
     }
 
 
-    // FixedUpdate is used when applying physics related functions 
+    // FixedUpdate is best used when applying physics related functions 
     void FixedUpdate()
     {
         GetInput();
