@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     private const string VERTICAL = "Vertical";
     private const string HORIZONTAL = "Horizontal";
 
-    public Rigidbody rb;
+    public Rigidbody rb; // rigidbody
+    public GameSettings gameSettings; // GameSettings script
 
     // Center of mass
     private Vector3 centerOfMass;
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        gameSettings = GameObject.Find("Canvas").GetComponent<GameSettings>(); // allows to use methods from GameSettings script
         rb.centerOfMass = centerOfMass; // when turning the car doesn't flip
     }
 
@@ -101,8 +103,7 @@ public class PlayerController : MonoBehaviour
             // if reachedCheckpoint is true
             if (reachedCheckpoint)
             {
-                SceneManager.LoadScene("ScoreMenu");
-                //GameObject.Find("Player").SendMessage("Finish");
+                gameSettings.Finish(); // access Finish() method from GameSettings script
             }
             
         }

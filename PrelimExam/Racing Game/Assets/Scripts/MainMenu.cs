@@ -13,13 +13,9 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Hello " + playername.text + "! Welcome to the Racing Game");
 
-        GameSettings.playernamestr = playername.text;
-        SceneManager.LoadScene("RacingGame");
+        GameSettings.playernamestr = playername.text; // pases the name to the RacingGame scene
+        ScoreMenu.playernamestr = playername.text; // pases the name to the ScoreMenu scene
+        SceneManager.LoadScene("RacingGame"); // loads RacingGame scene
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

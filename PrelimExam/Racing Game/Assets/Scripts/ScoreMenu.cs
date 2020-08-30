@@ -6,14 +6,22 @@ using UnityEngine.UI;
 
 public class ScoreMenu : MonoBehaviour
 {
-    public void ReturnToMenu()
+    public static string playernamestr;
+    public Text playername;
+
+    public static string timerTextstr;
+    public Text timerText;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        SceneManager.LoadScene("MainMenu");
+        playername.text = playernamestr; // receiver of name input from MainMenu
+        timerText.text = timerTextstr; // receiver of time string from GameSettings
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ReturnToMenu()
     {
-        
+        SceneManager.LoadScene("MainMenu"); // loads MainMenu scene
     }
+
 }
