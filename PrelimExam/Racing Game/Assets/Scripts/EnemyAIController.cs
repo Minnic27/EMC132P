@@ -65,7 +65,7 @@ public class EnemyAIController : MonoBehaviour
             }
             else
             {
-                curPoint ++;
+                curPoint += 1;
             }
         }
     }

@@ -47,7 +47,7 @@ public class PathSystem : MonoBehaviour
             }
         
             Gizmos.DrawLine(prevWayPoint, curWayPoint); // makes the path visible
-            Gizmos.DrawWireSphere(curWayPoint, 0.2f); // draws spheres for the waypoints
+            Gizmos.DrawWireSphere(curWayPoint, 0.9f); // draws spheres for the waypoints
         } 
     }
 
