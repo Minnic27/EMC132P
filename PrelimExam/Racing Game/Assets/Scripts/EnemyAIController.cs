@@ -56,7 +56,7 @@ public class EnemyAIController : MonoBehaviour
     void CheckWayPointDist()
     {
         // checks if the car is near the next waypoint line
-        if (Vector3.Distance(transform.position, waypoint[curPoint].position) < 0.08f)
+        if (Vector3.Distance(transform.position, waypoint[curPoint].position) < 0.5f)
         {
             // if current waypoint is at the last point
             if (curPoint == waypoint.Count - 1)

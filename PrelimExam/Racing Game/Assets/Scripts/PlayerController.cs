@@ -21,10 +21,8 @@ public class PlayerController : MonoBehaviour
 
     // variables needed for the movement of the car
     private float curSteerAngle;
-    private bool isTurbo;
 
 	public float motorForce;
-    public float breakForce;
     public float maxSteerAngle;
 
     // wheel colliders
@@ -51,7 +49,6 @@ public class PlayerController : MonoBehaviour
     {
         verticalInput = Input.GetAxis(VERTICAL); // for up and down
         horizontalInput = Input.GetAxis(HORIZONTAL); // for left and right
-        isTurbo = Input.GetKey(KeyCode.Space); // for speeding up the car
     }
 
     // movement of the car vertically
@@ -59,11 +56,6 @@ public class PlayerController : MonoBehaviour
     {
         flCollider.motorTorque = verticalInput * motorForce;
         frCollider.motorTorque = verticalInput * motorForce;
-        if (isTurbo) // if [Space] is held
-        {
-            Debug.Log("Test");
-            motorForce *= 100; 
-        }
     }
 
     // movement of the car horizontally
